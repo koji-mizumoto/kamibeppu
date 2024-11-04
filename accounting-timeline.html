@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+        .timeline {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .task-name {
+            padding: 10px;
+            font-size: 14px;
+        }
+        .timeline-bar {
+            position: relative;
+            height: 40px;
+            background: #f5f5f5;
+        }
+        .progress-bar {
+            position: absolute;
+            height: 30px;
+            top: 5px;
+            border-radius: 4px;
+            background: #4a90e2;
+            color: white;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .section-title {
+            grid-column: 1 / -1;
+            background: #2c3e50;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .dependency {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .process-number {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .trigger-section {
+            grid-column: 1 / -1;
+            background: #f8f9fa;
+            padding: 10px;
+            font-size: 12px;
+            color: #666;
+            border-left: 3px solid #4a90e2;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>会計業務タイムライン（1ヶ月）</h2>
+        
+        <div class="section-title">売上関連</div>
+        <!-- <div class="trigger-section">開始トリガー：レセプト送信完了連絡、日計表受領、キャッシュレス売上データ受領</div> -->
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">1.</span>保険収入計上（売掛金／保険収入）
+                <div class="dependency">※各店舗のレセプト送信完了連絡受領後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 33%; width: 33%;">10日-20日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">2,4,17.</span>窓口現金出納帳（日計表）
+                <div class="dependency">※各店舗の日計表受領後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 0; width: 66%;">1日-20日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">3.</span>キャッシュレス売上計上（売掛金／保険収入）
+                <div class="dependency">※1日以降</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 0; width: 66%;">1日-20日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">6,21.</span>派遣収入関係
+                <div class="dependency">※工程1-5がすべて完了後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 66%; width: 20%;">20日-25日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">7,8.</span>通販売上計上
+                <div class="dependency">※1日以降</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 0; width: 66%;">1日-20日</div>
+            </div>
+        </div>
+        
+        <div class="section-title">分譲関連</div>
+        <!-- <div class="trigger-section">開始トリガー：お客様確認完了連絡</div> -->
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">37.</span>薬局間の分譲一覧表作成
+                <div class="dependency">※1日以降</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 0; width: 33%;">1日-10日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">5.</span>薬局間分譲による売上計上（未収入金／他売上高）
+                <div class="dependency">※工程37のお客様確認完了連絡受領後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 66%; width: 20%;">20日-25日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">13.</span>薬局間分譲による仕入計上
+                <div class="dependency">※工程37のお客様確認完了連絡受領後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 66%; width: 20%;">20日-25日</div>
+            </div>
+        </div>
+
+        <div class="section-title">仕入・在庫関連</div>
+        <!-- <div class="trigger-section">開始トリガー：月間報告書アップロード、卸請求書受領</div> -->
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">11,12.</span>期末期首在庫入力
+                <div class="dependency">※工程37のお客様確認完了連絡受領後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 66%; width: 20%;">20日-25日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">38.</span>店舗月間報告書と卸請求書突き合わせ
+                <div class="dependency">※月間報告書がキントーンにアップされる</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 66%; width: 13%;">20日-23日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">39.</span>卸への振込支払登録
+                <div class="dependency">※卸の請求書を受領後（工程38完了後が理想）</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 0; width: 79%;">1日-23日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">9,10.</span>卸当月購入分
+                <div class="dependency">※工程39完了後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 79%; width: 21%;">23日-末日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">29.</span>卸当月支払分
+                <div class="dependency">※工程39完了後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 79%; width: 21%;">23日-末日</div>
+            </div>
+        </div>
+
+        <div class="section-title">人件費関連</div>
+        <!-- <div class="trigger-section">開始トリガー：給与データ登録、支給控除一覧表受領</div> -->
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">15.</span>給与登録
+                <div class="dependency">※自動で仕訳＞給与から入力に未登録データあり</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 83%; width: 6%;">25日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">14,16,24.</span>役員報酬と給与負担金関係
+                <div class="dependency">※支給控除一覧表受領後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 86%; width: 14%;">25日-末日</div>
+            </div>
+        </div>
+
+        <div class="section-title">経費関連</div>
+        <!-- <div class="trigger-section">開始トリガー：小口帳簿受領、CSV出力、明細受領</div> -->
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">22.</span>総務小口現金出納帳
+                <div class="dependency">※総務の小口帳簿受領後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 0; width: 66%;">1日-20日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">23.</span>減価償却費入力
+                <div class="dependency">※1日以降</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 0; width: 100%;">1日-末日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">34.</span>備品
+                <div class="dependency">※1日以降</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 0; width: 23%;">1日-7日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">35.</span>水道光熱費（電気代）
+                <div class="dependency">※九州エナジー(株)請求書受領後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 0; width: 23%;">1日-7日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">36.</span>消耗品
+                <div class="dependency">※総務の小口帳簿受領後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 0; width: 23%;">1日-7日</div>
+            </div>
+        </div>
+
+        <div class="section-title">普通預金関連</div>
+        <!-- <div class="trigger-section">開始トリガー：マネーフォワード連携、請求書受領</div> -->
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">α.</span>普通預金取引登録
+                <div class="dependency">※マネフォに銀行口座取引が連携されたら</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 0; width: 66%;">前月-20日</div>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="task-name">
+                <span class="process-number">β.</span>明細アップロード添付（証憑）
+                <div class="dependency">※請求書や売上明細の明細一覧格納後</div>
+            </div>
+            <div class="timeline-bar">
+                <div class="progress-bar" style="left: 0; width: 66%;">前月-20日</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
